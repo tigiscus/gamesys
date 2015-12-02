@@ -22,7 +22,7 @@ namespace GameSys.Series.Logic
             return result;
         }
 
-        public IEnumerable<double> GenerateSeries(double firstNumber, double growthRate, int length)
+        public IEnumerable<double> GenerateSeries(double firstNumber, double growthRate, int length, bool roundResults = false)
         {
             yield return firstNumber;
             for (int i = 1; i < length; i++)

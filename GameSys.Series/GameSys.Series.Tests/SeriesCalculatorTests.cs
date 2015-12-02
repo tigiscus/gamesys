@@ -40,14 +40,15 @@ namespace GameSys.Series.Tests
         }
 
         [Test]
-        [TestCase(1.62d, 2.5d, 5, new[] { 1.62d, 4.05d, 6.561d, 10.62882d, 17.2186884d })]
-        public void CanGenerateSeries(double firstElement, double growthRate, int length, double[] expectedResult)
+        [TestCase(1.62d, 2.5d, 5, false, new[] { 1.62d, 4.05d, 6.561d, 10.62882d, 17.2186884d })]
+        [TestCase(1.62d, 2.5d, 5, true, new[] { 1.62d, 4d, 6.5d, 10.75d, 17.25d })]
+        public void CanGenerateSeries(double firstElement, double growthRate, int length, bool shouldRound, double[] expectedResult)
         {
             //arrange
             var seriesCalculator = new SeriesCalculatorFixture().Create();
 
             //act
-            var result = seriesCalculator.GenerateSeries(firstElement, growthRate, length);
+            var result = seriesCalculator.GenerateSeries(firstElement, growthRate, length, shouldRound);
 
             //assert
             for (int i = 0; i < expectedResult.Length; i++)
