@@ -26,7 +26,7 @@ namespace GameSys.Series.Logic
 
             var approximateNumber = _y / z;
 
-            var nearest = series.OrderBy(p => Math.Abs(p - approximateNumber));
+            var nearest = series.OrderBy(p => Math.Abs(p - approximateNumber)).ThenByDescending(p => p);
 
             var number2 = nearest.First();
 
