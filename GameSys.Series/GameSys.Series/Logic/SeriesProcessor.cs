@@ -17,7 +17,7 @@ namespace GameSys.Series.Logic
             _y = y;
         }
 
-        public SeriesProcessor GetSpecialNumbers(IEnumerable<double> series)
+        public SpecialNumbers GetSpecialNumbers(IEnumerable<double> series)
         {
             if (series.Count() <= specialNumber1Index)
                 throw new ArgumentException(string.Format("Series must have more than {0} elements", specialNumber1Index + 1));
