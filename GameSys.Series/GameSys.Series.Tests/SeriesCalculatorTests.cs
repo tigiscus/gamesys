@@ -36,7 +36,21 @@ namespace GameSys.Series.Tests
             var result = seriesCalculator.CalculateGrowthRate(firstElement, y);
 
             //assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(expectedResult, Is.EqualTo(result).Within(0.1));
+        }
+
+        [Test]
+        [TestCase(1.62d, 2.5d, 5, new[] { 1.62d, 4.05d, 6.561d, 10.62882d, 17.2186884d })]
+        public void CanGenerateSeries(double firstElement, double growthRate, int length, double[] expectedResult)
+        {
+            //arrange
+            var seriesCalculator = new SeriesCalculatorFixture().Create();
+
+            //act
+            var result = seriesCalculator.GenerateSeries(firstElement, growthRate, length);
+
+            //assert
+            Assert.That(expectedResult, Is.EquivalentTo(result.ToArray()));
         }
     }
 }
