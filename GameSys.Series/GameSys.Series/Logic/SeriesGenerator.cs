@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameSys.Series.Logic
 {
-    public class SeriesCalculator
+    public class SeriesGenerator
     {
         private const double TwoPerCentModifier = 0.02d;
 

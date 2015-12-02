@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace GameSys.Series.Tests.Fixtures
 {
-    public class SeriesCalculatorFixture
+    public class SeriesGeneratorFixture
     {
-        public SeriesCalculator Create()
+        public SeriesGenerator Create()
         {
-            return new SeriesCalculator();
+            return new SeriesGenerator();
         }
     }
 }

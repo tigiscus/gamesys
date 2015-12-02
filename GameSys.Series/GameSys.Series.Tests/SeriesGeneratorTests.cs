@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 namespace GameSys.Series.Tests
 {
     [TestFixture]
-    public class SeriesCalculatorTests
+    public class SeriesGeneratorTests
     {
         [Test]
         [TestCase(1d, 1.62d)]
         public void CanCalculateFirstElement(double x, double expectedResult)
         {
             //arrange
-            var seriesCalculator = new SeriesCalculatorFixture().Create();
+            var seriesCalculator = new SeriesGeneratorFixture().Create();
 
             //act
             var result = seriesCalculator.CalculateFirstElement(x);
@@ -30,7 +30,7 @@ namespace GameSys.Series.Tests
         public void CanCalculateGrowthRate(double firstElement, double y, double expectedResult)
         {
             //arrange
-            var seriesCalculator = new SeriesCalculatorFixture().Create();
+            var seriesCalculator = new SeriesGeneratorFixture().Create();
 
             //act
             var result = seriesCalculator.CalculateGrowthRate(firstElement, y);
@@ -45,7 +45,7 @@ namespace GameSys.Series.Tests
         public void CanGenerateSeries(double firstElement, double growthRate, int length, bool shouldRound, double[] expectedResult)
         {
             //arrange
-            var seriesCalculator = new SeriesCalculatorFixture().Create();
+            var seriesCalculator = new SeriesGeneratorFixture().Create();
 
             //act
             var result = seriesCalculator.GenerateSeries(firstElement, growthRate, length, shouldRound);
@@ -60,7 +60,7 @@ namespace GameSys.Series.Tests
         public void CanGenerateSeriesWithoutDuplicates(double firstElement, double growthRate, int length)
         {
             //arrange
-            var seriesCalculator = new SeriesCalculatorFixture().Create();
+            var seriesCalculator = new SeriesGeneratorFixture().Create();
 
             //act
             var result = seriesCalculator.GenerateSeries(firstElement, growthRate, length);
