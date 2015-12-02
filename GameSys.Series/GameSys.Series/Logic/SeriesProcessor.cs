@@ -8,6 +8,8 @@ namespace GameSys.Series.Logic
 {
     public class SeriesProcessor
     {
+        private const int specialNumber1Index = 2;
+
         private double _y;
 
         public SeriesProcessor(double y = 0)
@@ -17,8 +19,10 @@ namespace GameSys.Series.Logic
 
         public SeriesProcessor GetSpecialNumbers(IEnumerable<double> series)
         {
+            if (series.Count() <= specialNumber1Index)
+                throw new ArgumentException(string.Format("Series must have more than {0} elements", specialNumber1Index + 1));
 
-            throw new NotImplementedException();
+            throw new NotFiniteNumberException();
         }
     }
 }
