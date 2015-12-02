@@ -12,7 +12,7 @@ namespace GameSys.Series.Tests
     public class SeriesCalculatorTests
     {
         [Test]
-        [TestCase(1, 1.62)]
+        [TestCase(1d, 1.62d)]
         public void CanCalculateFirstElement(double x, double expectedResult)
         {
             //arrange
@@ -22,7 +22,7 @@ namespace GameSys.Series.Tests
             var result = seriesCalculator.CalculateFirstElement(x);
 
             //assert
-            Assert.AreEqual(expectedResult, x);
+            Assert.AreEqual(expectedResult, result);
         }
     }
 }

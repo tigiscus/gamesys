@@ -10,7 +10,8 @@ namespace GameSys.Series.Logic
     {
         public double CalculateFirstElement(double x)
         {
-            throw new NotImplementedException();
+            var result = ((0.5d * Math.Pow(x, 2d) + (30d * x) + 10d) / 25d);
+            return result;
         }
     }
 }
