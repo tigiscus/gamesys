@@ -24,5 +24,19 @@ namespace GameSys.Series.Tests
             //assert
             Assert.AreEqual(expectedResult, result);
         }
+
+        [Test]
+        [TestCase(1.62d, 5062.5d, 2.5d)]
+        public void CanCalculateGrowthRate(double firstElement, double y, double expectedResult)
+        {
+            //arrange
+            var seriesCalculator = new SeriesCalculatorFixture().Create();
+
+            //act
+            var result = seriesCalculator.CalculateGrowthRate(firstElement, y);
+
+            //assert
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }

@@ -13,5 +13,10 @@ namespace GameSys.Series.Logic
             var result = ((0.5d * Math.Pow(x, 2d) + (30d * x) + 10d) / 25d);
             return result;
         }
+
+        public double CalculateGrowthRate(double firstElement, double y)
+        {
+            throw new NotFiniteNumberException();
+        }
     }
 }
