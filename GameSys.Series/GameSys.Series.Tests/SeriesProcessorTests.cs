@@ -41,6 +41,7 @@ namespace GameSys.Series.Tests
 
         [Test]
         [TestCase(1000d, 160d, new[] { 1.62d, 4d, 6.5d, 10.75d, 17.25d }, 6.5d)]
+        [TestCase(525d, 100d, new[] { 1.62d, 4d, 6.5d, 10.75d, 17.25d }, 6.5d)]
         public void CanFindNumber2(double y, double z, double[] series, double expectedResult)
         {
             //arrange
