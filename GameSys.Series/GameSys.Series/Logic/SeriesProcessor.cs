@@ -23,7 +23,12 @@ namespace GameSys.Series.Logic
                 throw new ArgumentException(string.Format("Series must have more than {0} elements", specialNumber1Index + 1));
 
             var number1 = series.ElementAt(specialNumber1Index);
-            var number2 = 0d;
+
+            var approximateNumber = _y / z;
+
+            var nearest = series.OrderBy(p => Math.Abs(p - approximateNumber));
+
+            var number2 = nearest.First();
 
             var result = new SpecialNumbers(number1, number2);
             return result;
