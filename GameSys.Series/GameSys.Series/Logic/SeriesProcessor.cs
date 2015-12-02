@@ -22,7 +22,11 @@ namespace GameSys.Series.Logic
             if (series.Count() <= specialNumber1Index)
                 throw new ArgumentException(string.Format("Series must have more than {0} elements", specialNumber1Index + 1));
 
-            throw new NotFiniteNumberException();
+            var number1 = series.ElementAt(specialNumber1Index);
+            var number2 = 0d;
+
+            var result = new SpecialNumbers(number1, number2);
+            return result;
         }
     }
 }
