@@ -50,8 +50,22 @@ namespace GameSys.Series.Tests
             var result = seriesCalculator.GenerateSeries(firstElement, growthRate, length);
 
             //assert
-            for(int i = 0; i < expectedResult.Length; i++)
-              Assert.That(expectedResult[i], Is.EqualTo(result.ElementAt(i)).Within(0.000001));
+            for (int i = 0; i < expectedResult.Length; i++)
+                Assert.That(expectedResult[i], Is.EqualTo(result.ElementAt(i)).Within(0.000001));
+        }
+
+        [Test]
+        [TestCase(1.62d, 2.5d, 5)]
+        public void CanGenerateSeriesWithoutDuplicates(double firstElement, double growthRate, int length)
+        {
+            //arrange
+            var seriesCalculator = new SeriesCalculatorFixture().Create();
+
+            //act
+            var result = seriesCalculator.GenerateSeries(firstElement, growthRate, length);
+
+            //assert
+            Assert.IsFalse(result.GroupBy(p => p).Any(p => p.Count() > 1));
         }
     }
 }
