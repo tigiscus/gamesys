@@ -12,28 +12,28 @@ namespace GameSys.Series.Tests
     public class SeriesProcessorTests
     {
         [Test]
-        [TestCase(0)]
-        [TestCase(1)]
-        [TestCase(2)]
+        [TestCase(0, 160d)]
+        [TestCase(1, 160d)]
+        [TestCase(2, 160d)]
         [ExpectedException(typeof(ArgumentException))]
-        public void CanThrowExceptionIfCollectionHasLessThan3Elements(int size)
+        public void CanThrowExceptionIfCollectionHasLessThan3Elements(int size, double z)
         {
             //arrange
             var seriesProcessor = new SeriesProcessorFixture().Create();
 
             //act
-            var result = seriesProcessor.GetSpecialNumbers(Enumerable.Range(0, size).Select(p => Convert.ToDouble(p)));
+            var result = seriesProcessor.GetSpecialNumbers(Enumerable.Range(0, size).Select(p => Convert.ToDouble(p)), z);
         }
 
         [Test]
-        [TestCase(new[] { 1.62d, 4d, 6.5d }, 6.5d)]
-        public void CanFindNumber1(double[] series, double expectedResult)
+        [TestCase(new[] { 1.62d, 4d, 6.5d }, 160d, 6.5d)]
+        public void CanFindNumber1(double[] series, double z, double expectedResult)
         {
             //arrange
             var seriesProcessor = new SeriesProcessorFixture().Create();
 
             //act
-            var result = seriesProcessor.GetSpecialNumbers(series);
+            var result = seriesProcessor.GetSpecialNumbers(series, z);
 
             //assert
             Assert.AreEqual(expectedResult, result.Number1);
@@ -47,7 +47,7 @@ namespace GameSys.Series.Tests
             var seriesProcessor = new SeriesProcessorFixture().SetupYConstant(y).Create();
 
             //act
-            var result = seriesProcessor.GetSpecialNumbers(series);
+            var result = seriesProcessor.GetSpecialNumbers(series, z);
 
             //assert
             Assert.AreEqual(expectedResult, result.Number2);
