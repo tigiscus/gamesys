@@ -50,7 +50,8 @@ namespace GameSys.Series.Tests
             var result = seriesCalculator.GenerateSeries(firstElement, growthRate, length);
 
             //assert
-            Assert.That(expectedResult, Is.EquivalentTo(result.ToArray()));
+            for(int i = 0; i < expectedResult.Length; i++)
+              Assert.That(expectedResult[i], Is.EqualTo(result.ElementAt(i)).Within(0.000001));
         }
     }
 }

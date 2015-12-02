@@ -24,7 +24,9 @@ namespace GameSys.Series.Logic
 
         public IEnumerable<double> GenerateSeries(double firstNumber, double growthRate, int length)
         {
-            throw new NotImplementedException();
+            yield return firstNumber;
+            for (int i = 1; i < length; i++)
+                yield return growthRate * Math.Pow(firstNumber, i);
         }
     }
 }
