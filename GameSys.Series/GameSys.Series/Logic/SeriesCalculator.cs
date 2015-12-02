@@ -22,11 +22,21 @@ namespace GameSys.Series.Logic
             return result;
         }
 
-        public IEnumerable<double> GenerateSeries(double firstNumber, double growthRate, int length, bool roundResults = false)
+        public IEnumerable<double> GenerateSeries(double firstNumber, double growthRate, int length, bool round = false)
         {
             yield return firstNumber;
             for (int i = 1; i < length; i++)
-                yield return growthRate * Math.Pow(firstNumber, i);
+                yield return Round(growthRate * Math.Pow(firstNumber, i), round);
+        }
+
+        private double Round(double value, bool shouldRound)
+        {
+            var result = value;
+            if (shouldRound)
+            {
+                result = Math.Round(value * 4d, MidpointRounding.ToEven) / 4d;
+            }
+            return result;
         }
     }
 }
