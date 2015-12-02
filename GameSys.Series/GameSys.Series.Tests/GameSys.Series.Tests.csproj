@@ -65,8 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fixtures\SeriesGeneratorFixture.cs" />
+    <Compile Include="Fixtures\SeriesProcessorFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeriesGeneratorTests.cs" />
+    <Compile Include="SeriesProcessorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

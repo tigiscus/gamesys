@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logic\SeriesGenerator.cs" />
+    <Compile Include="Logic\SeriesProcessor.cs" />
     <Compile Include="Logic\SpecialNumbers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
