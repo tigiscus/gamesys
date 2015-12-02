@@ -38,5 +38,19 @@ namespace GameSys.Series.Tests
             //assert
             Assert.AreEqual(expectedResult, result.Number1);
         }
+
+        [Test]
+        [TestCase(1000d, 160d, new[] { 1.62d, 4d, 6.5d, 10.75d, 17.25d }, 6.5d)]
+        public void CanFindNumber2(double y, double z, double[] series, double expectedResult)
+        {
+            //arrange
+            var seriesProcessor = new SeriesProcessorFixture().SetupYConstant(y).Create();
+
+            //act
+            var result = seriesProcessor.GetSpecialNumbers(series);
+
+            //assert
+            Assert.AreEqual(expectedResult, result.Number2);
+        }
     }
 }
